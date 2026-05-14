@@ -1,0 +1,196 @@
+%!TEX program = lualatex
+% ============================================================
+%  国家自然科学基金（NSFC）报告正文 LaTeX 模板  (2026 版)
+%  Author: Lily Xue  (https://github.com/<your-handle>)
+%  License: MIT
+%
+%  编译命令（推荐 LuaLaTeX）：
+%      lualatex main
+%      bibtex   main
+%      lualatex main
+%      lualatex main
+%
+%  也可用 XeLaTeX：把第 1 行改为 %!TEX program = xelatex 即可。
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[UTF8,fontset=fandol]{ctex}
+\setmainfont[Ligatures=TeX]{Latin Modern Roman}
+
+% 楷体字体（用于"提纲提示语"）
+\setCJKfamilyfont{zhkai}[AutoFakeBold=5]{FandolKai-Regular}
+\newcommand{\kai}[1]{{\kaishu #1}}
+\newcommand{\kaibold}[1]{{\bfseries\kaishu #1}}
+
+\usepackage{nsfc}            % 本模板核心样式
+\usepackage[misc]{ifsym}
+\usepackage{pifont}
+\usepackage{overpic}
+\usepackage{subfigure}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{textcomp}
+\usepackage{float}
+
+% ---------- 常用宏 ----------
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\text{\ding{55}}}
+\newcommand{\todo}[1]{{\textcolor{red}{\bf [#1]}}}
+\newcommand{\mypara}[1]{\paragraph{#1.}}
+\newcommand{\myEmph}[1]{\textbf{\textcolor[rgb]{0,0,0.25}{#1}}}
+\newcommand{\addImg}[2]{\includegraphics[width=#1\textwidth]{#2}}
+
+% ---------- 申请人标注 ----------
+\newcommand{\me}[1]{{\CJKfamily{hei}#1}}                % 申请人用黑体
+\newcommand{\first}{\textsuperscript{\textdagger}}      % 一作符号
+\newcommand{\cor}{\textsuperscript{*}}                  % 通讯作者符号
+
+% ---------- 引用辅助 ----------
+\newcommand{\figref}[1]{图\ref{#1}}
+\newcommand{\tabref}[1]{表\ref{#1}}
+\newcommand{\equref}[1]{式\ref{#1}}
+\newcommand{\secref}[1]{第\ref{#1}节}
+\newcommand{\citess}[1]{\textsuperscript{\cite{#1}}}    % 上标引用
+\newcommand{\myCite}[1]{\myEmph{#1}$^\text{我们}_\text{工作}$}  % 标注申请人自己的工作
+
+% ---------- 压缩参考文献间距 ----------
+\let\origthebibliography\thebibliography
+\let\origendthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \origthebibliography{#1}%
+  \setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}%
+  \setlength{\topsep}{0pt}\setlength{\parskip}{0pt}%
+}{\origendthebibliography}
+
+\WarningFilter{latexfont}{Font}
+\WarningFilter{font}{Font}
+\WarningFilter{fontspec}{Font}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+
+\title{\emph{\zihao{2} \kai{报告正文（2026版）}}}
+\maketitle
+\thispagestyle{empty}
+
+\kai{参照以下提纲撰写，要求内容翔实、清晰，层次分明，标题突出。\textbf{\textcolor{red}{申请书正文原则上不超过30页，鼓励简洁表达。}\textcolor[rgb]{0.0625,0.4453,0.7383}{请勿删除或改动下述提纲标题及括号中的文字。}}}
+
+\vspace{0.5cm}
+
+% ============================================================
+\ContentDes{\kaibold{（一）立项依据：}}
+\NsfcNote{\kai{（为什么要开展此项研究，研究的科学技术价值如何）}}
+
+\section{研究背景及科学意义}
+% 写作建议：
+%  1. 先用 1-2 段勾勒国家战略与现实痛点（政策文件 + 行业数据）
+%  2. 再用 1-2 段梳理国际前沿（高水平期刊代表性工作）
+%  3. 最后用 1 段引出本项目的切入点与研究范式
+\todo{在这里写研究背景}
+
+\subsection{关键科学问题的界定}
+% 建议用 3 个并列子段落，每段聚焦一个科学问题：
+%   (1) ...
+%   (2) ...
+%   (3) ...
+\todo{列出 2-3 个关键科学问题}
+
+\section{国内外研究现状与发展动态}
+\todo{文献综述。建议按"科学问题"组织，而非按"作者"罗列。}
+
+\section{申请人前期工作基础}
+% 突出本团队过去 3-5 年与本课题最相关的产出
+\todo{列出前期工作：已发表论文、在投论文、数据/方法积累}
+
+% ============================================================
+\ContentDes{\kaibold{（二）项目研究内容：}}
+\NsfcNote{\kai{（围绕关键科学问题，开展哪些研究）}}
+
+\section{研究目标}
+\todo{1-2 段，明确"做什么 + 解决什么科学问题 + 形成什么理论或方法"}
+
+\section{研究内容}
+\subsection{子课题一：\todo{标题}}
+\subsection{子课题二：\todo{标题}}
+\subsection{子课题三：\todo{标题}}
+
+\section{拟解决的关键科学问题}
+\todo{呼应（一）中的关键科学问题，逐条说明本项目如何攻克}
+
+% ============================================================
+\ContentDes{\kaibold{（三）研究方案及可行性分析：}}
+\NsfcNote{\kai{（怎么开展此项研究，开展研究的把握如何）}}
+
+\section{研究方案}
+\subsection{总体研究框架}
+% 强烈建议放一张"研究框架图"
+% \begin{figure}[H]
+%   \centering
+%   \addImg{0.85}{framework.png}
+%   \caption{\kai{本项目研究框架}}
+%   \label{fig:framework}
+% \end{figure}
+\todo{放研究框架图 + 1 段文字描述各子课题之间的逻辑递进}
+
+\subsection{子课题一研究方案}
+\subsection{子课题二研究方案}
+\subsection{子课题三研究方案}
+
+\section{可行性分析}
+\subsection{理论与方法可行性}
+\subsection{数据与平台可行性}
+\subsection{团队与时间可行性}
+
+% ============================================================
+\ContentDes{\kaibold{（四）本项目的特色与创新之处：}}
+
+\begin{itemize}
+  \item \myEmph{特色一：} \todo{...}
+  \item \myEmph{特色二：} \todo{...}
+  \item \myEmph{创新一：} \todo{...}
+  \item \myEmph{创新二：} \todo{...}
+\end{itemize}
+
+% ============================================================
+\ContentDes{\kaibold{（五）年度研究计划及预期研究结果：}}
+
+\subsection*{年度研究计划}
+\begin{itemize}
+  \item \textbf{2027.01--2027.12：} \todo{...}
+  \item \textbf{2028.01--2028.12：} \todo{...}
+  \item \textbf{2029.01--2029.12：} \todo{...}
+  \item \textbf{2030.01--2030.12：} \todo{...}
+\end{itemize}
+
+\subsection*{预期研究结果}
+\todo{列出预期论文（标注目标期刊）、专著、数据、政策报告、人才培养等}
+
+% ============================================================
+%  参考文献
+% ============================================================
+\bibliographystyle{nsfc}
+\bibliography{references}
+
+% ============================================================
+%  研究基础与工作条件
+% ============================================================
+\newpage
+\ContentDes{\kaibold{（一）研究基础}}
+\NsfcNote{\kai{（与本项目相关的研究工作积累和已取得的研究工作成绩）}}
+\todo{...}
+
+\ContentDes{\kaibold{（二）工作条件}}
+\NsfcNote{\kai{（包括已具备的实验条件，尚缺少的实验条件和拟解决的途径，包括利用国家实验室、国家重点实验室和部门重点实验室等研究基地的计划与落实情况）}}
+\todo{...}
+
+\ContentDes{\kaibold{（三）正在承担的与本项目相关的科研项目情况}}
+\todo{...}
+
+\ContentDes{\kaibold{（四）完成国家自然科学基金项目情况}}
+\todo{...}
+
+\end{document}
