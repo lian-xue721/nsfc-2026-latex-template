@@ -15,7 +15,7 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/<your-handle>/nsfc-2026-latex-template.git
+git clone https://github.com/lian-xue721/nsfc-2026-latex-template.git
 cd nsfc-2026-latex-template
 
 # 编译（推荐 LuaLaTeX，对中文+楷体支持最稳）
